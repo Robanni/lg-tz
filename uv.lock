@@ -297,7 +297,7 @@ wheels = [
 [[package]]
 name = "fastcms"
 version = "0.3.0"
-source = { git = "https://github.com/Robanni/fastcms.git#b5481ff17c262829739952fc34420ff67151dca4" }
+source = { git = "https://github.com/Robanni/fastcms.git#ba253ded01f9a473252691d45938cc115d46d9b6" }
 dependencies = [
     { name = "fastapi" },
     { name = "pydantic" },

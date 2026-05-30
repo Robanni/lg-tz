@@ -1,6 +1,10 @@
 from fastapi import FastAPI
+from fastcms import setup
 
+from enrichment.resource import EnrichedNewsResource
+from news.resource import NewsResource
 from shared.config import get_settings
+from shared.db import get_db
 from shared.exception_handlers import setup_exception_handlers
 from shared.middleware import setup_middleware
 
@@ -19,6 +23,8 @@ def create_app() -> FastAPI:
 
     setup_middleware(app)
     setup_exception_handlers(app)
+
+    setup(app, resources=[NewsResource, EnrichedNewsResource], get_session=get_db)
 
     @app.get("/health", tags=["Health"])
     async def healthcheck() -> dict[str, str]:
