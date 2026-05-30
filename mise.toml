@@ -1,0 +1,19 @@
+[env]
+_.file = ".env"
+
+[tasks.db]
+description = "Start postgres"
+run = "docker compose up -d"
+
+[tasks.db-stop]
+description = "Stop postgres"
+run = "docker compose down"
+
+[tasks.dev]
+description = "Start FastAPI dev server"
+depends = ["db"]
+run = "uvicorn main:app --reload --host 0.0.0.0 --port 8000 --app-dir src"
+
+[tasks.lint]
+description = "Lint and format source code"
+run = "ruff check --fix src && ruff format src"
