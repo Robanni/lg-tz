@@ -295,6 +295,16 @@ wheels = [
 ]
 
 [[package]]
+name = "fastcms"
+version = "0.3.0"
+source = { git = "https://github.com/Robanni/fastcms.git#b5481ff17c262829739952fc34420ff67151dca4" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "pydantic" },
+    { name = "sqlalchemy" },
+]
+
+[[package]]
 name = "greenlet"
 version = "3.5.1"
 source = { registry = "https://pypi.org/simple" }
@@ -463,6 +473,7 @@ dependencies = [
     { name = "alembic" },
     { name = "asyncpg" },
     { name = "fastapi", extra = ["standard"] },
+    { name = "fastcms" },
     { name = "psycopg" },
     { name = "psycopg-binary" },
     { name = "pydantic-settings" },
@@ -480,6 +491,7 @@ requires-dist = [
     { name = "alembic", specifier = ">=1.14.0" },
     { name = "asyncpg", specifier = ">=0.31.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.136.3" },
+    { name = "fastcms", git = "https://github.com/Robanni/fastcms.git" },
     { name = "psycopg", specifier = ">=3.2.0" },
     { name = "psycopg-binary", specifier = ">=3.2.0" },
     { name = "pydantic-settings", specifier = ">=2.7.0" },

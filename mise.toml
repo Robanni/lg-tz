@@ -17,3 +17,24 @@ run = "uvicorn main:app --reload --host 0.0.0.0 --port 8000 --app-dir src"
 [tasks.lint]
 description = "Lint and format source code"
 run = "ruff check --fix src && ruff format src"
+
+[tasks.migrate]
+description = "Run alembic migrations (upgrade head)"
+depends = ["db"]
+run = "alembic upgrade head"
+
+[tasks.migrate-down]
+description = "Rollback last alembic migration"
+run = "alembic downgrade -1"
+
+[tasks.migrate-new]
+description = "Create new alembic migration: mise run migrate-new -- <message>"
+run = "alembic revision --autogenerate -m \"{{arg(name='message')}}\""
+
+[tasks.migrate-history]
+description = "Show alembic migration history"
+run = "alembic history --verbose"
+
+[tasks.migrate-current]
+description = "Show current alembic revision"
+run = "alembic current"
