@@ -13,6 +13,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from shared.base import Base
 from shared.config import get_settings
 import news.model
+import enrichment.model
+import enrichment.job_model
 
 config = context.config
 
