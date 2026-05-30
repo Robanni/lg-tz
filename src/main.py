@@ -10,6 +10,7 @@ from enrichment.resource import EnrichedNewsResource
 from enrichment.router import router as enrichment_router
 from enrichment.service import run_pending
 from news.resource import NewsResource
+from news.router import router as news_router
 from shared.config import get_settings
 from shared.db import SessionLocal, get_db
 from shared.exception_handlers import setup_exception_handlers
@@ -59,6 +60,7 @@ def create_app() -> FastAPI:
 
     setup(app, resources=[NewsResource, EnrichedNewsResource], get_session=get_db)
     app.include_router(enrichment_router)
+    app.include_router(news_router)
 
     @app.get("/health", tags=["Health"])
     async def healthcheck() -> dict[str, str]:
