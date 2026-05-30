@@ -22,11 +22,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = [
-    "pytest>=9.0.3",
-    "pytest-asyncio>=1.4.0",
-    "ruff>=0.9",
-]
+dev = ["pytest>=9.0.3", "pytest-asyncio>=1.4.0", "ruff>=0.9"]
 
 [tool.ruff]
 line-length = 99
@@ -43,6 +39,9 @@ known-first-party = ["shared"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.uv.sources]
 fastcms = { git = "https://github.com/Robanni/fastcms.git" }
