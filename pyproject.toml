@@ -14,10 +14,17 @@ dependencies = [
     "pydantic-settings>=2.7.0",
     "sqlalchemy[asyncio]>=2.0.0",
     "uvicorn>=0.34.0",
+    "httpx>=0.28",
+    "trafilatura>=2.0",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "tenacity>=9.0",
 ]
 
 [dependency-groups]
 dev = [
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.4.0",
     "ruff>=0.9",
 ]
 
@@ -32,6 +39,10 @@ ignore = ["B008"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["shared"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
 
 [tool.uv.sources]
 fastcms = { git = "https://github.com/Robanni/fastcms.git" }
