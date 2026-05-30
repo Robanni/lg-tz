@@ -3,7 +3,7 @@ _.file = ".env"
 
 [tasks.db]
 description = "Start postgres"
-run = "docker compose up -d"
+run = "docker compose up -d db"
 
 [tasks.db-stop]
 description = "Stop postgres"

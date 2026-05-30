@@ -14,11 +14,12 @@ from news.router import router as news_router
 from shared.config import get_settings
 from shared.db import SessionLocal, get_db
 from shared.exception_handlers import setup_exception_handlers
+from shared.logging import setup_logging
 from shared.middleware import setup_middleware
 
 logger = logging.getLogger(__name__)
 
-_WORKER_INTERVAL = 30  # seconds
+_WORKER_INTERVAL = 5  # seconds
 
 
 async def enrichment_worker() -> None:
@@ -44,6 +45,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 def create_app() -> FastAPI:
     settings = get_settings()
+    setup_logging(settings.debug)
 
     app = FastAPI(
         title=settings.app_title,
